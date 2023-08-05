@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+                .converter{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 4px rgba(0,0,0,0.8);
+            text-align: center;
+            background-color: red;
+            color:white;
+            height:100vh;
+            justify-content: center;
+            font-family: 'Baloo 2', cursive;
+
+                    }
+                    button{
+                        margin-top: 20px;
+                        width:200px;
+                        padding: 5px;
+                        background-color: yellow;
+                        border:none;
+                        
+                    }
+                    #unit{
+                        margin-top: 20px;
+                        width:200px;
+                        padding: 5px;
+                        background-color: gray;
+                        color:white;
+                        border:none;
+                    }
+                    #temperature{
+                        width:200px;
+                        padding: 5px;
+                        background-color: whitesmoke;
+                        color:gray;
+                        border:none;
+                        box-shadow: 0 0 4px rgba(0,0,0,0.8);
+                    }
+                    .result{
+                        font-size: 30px;
+                        font-weight: 400;
+                    }
+    </style>
+</head>
+<body>
+    <div class="converter">
+     <h1>Temperature Converter </h1>
+        <form action="">
+            <input type="number" id="temperature">
+            <select name="" id="unit">
+                <option value="Degree Celcius">Degree Celcius</option>
+                <option value="Fahrenheit">Fahrenheit</option>
+            </select>
+        </form>
+        <div class="button" >
+            <button id="btn">Convert</button>
+        </div>
+        <div class="result"></div>
+    </div>
+    <script>
+        const conversion=()=>{
+            // let category=document.getElementById("category").value;
+            let temperature=document.getElementById("temperature").value;
+            let unit=document.getElementById("unit").value;
+            let innerResult=document.querySelector(".result")
+            let result;
+            if(unit=="Degree Celcius"){
+result=(temperature * 9/5) + 32;
+innerResult.innerHTML=`temperature in °F is ${result} °F`
+            }
+            else if(unit=="Fahrenheit"){
+                result= (temperature - 32) *5/9; 
+                innerResult.innerHTML=`temperature in °C is ${result} °C`
+            }
+        }
+     
+let btn=document.getElementById("btn")
+btn.addEventListener("click",conversion)
+    </script>
+</body>
+</html>
